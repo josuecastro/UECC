@@ -34,10 +34,12 @@ public class PlayerLookController : MonoBehaviour
             cameraRoot.position = meshCameraPosition.position;
         }
 
+        float deltaMultiplier = _input.isGamepad ? Time.deltaTime : 1f;
+
         if (_input.look != Vector2.zero)
         {
-            yaw += _input.look.x * sensitivity;
-            pitch += -_input.look.y * sensitivity;
+            yaw += _input.look.x * sensitivity * deltaMultiplier;
+            pitch += -_input.look.y * sensitivity * deltaMultiplier;
 
             if (yaw > 360f) yaw += 360f;
             if (yaw < -360f) yaw -= -360f;
