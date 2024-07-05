@@ -11,7 +11,7 @@ public class PlayerLookController : MonoBehaviour
     private float smoothPitch;
 
     public float sensitivity = 1f;
-    public float smoothing = 40f;
+    public float smoothing = 50f;
     public bool rawInput;
 
     public Transform cameraRoot;
@@ -28,6 +28,11 @@ public class PlayerLookController : MonoBehaviour
     }
 
     private void LateUpdate()
+    {
+        CameraLookRotation();
+    }
+
+    private void CameraLookRotation()
     {
         if (meshCameraPosition != null)
         {
